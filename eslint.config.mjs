@@ -10,20 +10,20 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
-  ...compat.extends(
-    'next/core-web-vitals',
-    'next/typescript',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended',
-    'prettier'
-  ),
-  ...compat.env({
-    browser: true,
-    es2021: true,
-    node: true,
-  }),
-  ...compat.plugins(['@typescript-eslint', 'prettier']),
   ...compat.config({
+    ignorePatterns: ['node_modules/', 'dist/', 'build/', '**rc.*'],
+    extends: [
+      'next/core-web-vitals',
+      'next/typescript',
+      'prettier',
+      'plugin:prettier/recommended',
+    ],
+    env: {
+      browser: true,
+      es2021: true,
+      node: true,
+    },
+    plugins: ['prettier'],
     parser: '@typescript-eslint/parser',
     parserOptions: {
       ecmaVersion: 'latest',
@@ -35,7 +35,7 @@ const eslintConfig = [
     rules: {
       'prettier/prettier': 'error',
       'no-console': 'warn',
-      'react/react-in-jsx-scope': 'off', // Next.js does not require React to be in scope
+      'react/react-in-jsx-scope': 'off',
     },
     settings: {
       react: {
