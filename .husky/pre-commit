@@ -1,2 +1,2 @@
 echo "🔍 Running pre-commit hooks..."
-pnpx lint-staged
+pnpm dlx lint-staged
