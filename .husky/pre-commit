@@ -1,2 +1,4 @@
+export PATH="/Users/leonidpetrov/.nvm/versions/node/v22.13.0/bin:$PATH"
+
 echo "🔍 Running pre-commit hooks..."
-pnpm dlx lint-staged
+pnpx lint-staged
